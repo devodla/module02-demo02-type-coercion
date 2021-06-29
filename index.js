@@ -43,12 +43,19 @@ const item = {
   valueOf() {
     return { hey: 'dude' }
     // return 007
+  },
+  // ele tem prioridade na parada!
+  [Symbol.toPrimitive](coercionType) {
+    console.log('trying to convert to', coercionType)
   }
 }
 
-console.log('item', item + 1)
-console.log('item', ''.concat(item))
+// console.log('item', item + 1)
+// console.log('item', ''.concat(item))
 
 // convertion explicita
-console.log('toString', String(item))
-console.log('valueOf', Number(item))
+// console.log('toString', String(item))
+// console.log('valueOf', Number(item))
+
+// depois de adicionar o primitive
+console.log('String', String(item))
